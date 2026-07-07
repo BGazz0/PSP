@@ -1,0 +1,388 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.pdf-document {
+  --navy: #003b7a;
+  --blue: #004a98;
+  --teal: #009ca6;
+  --pale: #eaf7f8;
+  --text: #1d2b36;
+  --border: #d8e8ea;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pdf-page {
+  width: 210mm;
+  height: 297mm;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+  padding: 17mm 17mm 18mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+.pdf-logo-strip {
+  height: 18mm;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16mm;
+  margin-bottom: 10mm;
+}
+
+.pdf-council-logo {
+  max-width: 48mm;
+  max-height: 17mm;
+  object-fit: contain;
+}
+
+.pdf-psp-logo {
+  max-width: 50mm;
+  max-height: 17mm;
+  object-fit: contain;
+}
+
+.eyebrow, .section-label {
+  color: var(--teal);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  font-size: 10pt;
+  margin-bottom: 5mm;
+}
+
+.cover-content {
+  max-width: 162mm;
+  z-index: 1;
+}
+
+.cover-content h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 41pt;
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+
+.cover-content h2 {
+  margin: 5mm 0 0;
+  color: var(--teal);
+  font-size: 20pt;
+  line-height: 1.15;
+}
+
+.cover-content p {
+  max-width: 135mm;
+  margin: 8mm 0 0;
+  font-size: 13pt;
+  line-height: 1.45;
+  color: #294553;
+}
+
+.cover-visual {
+  margin: 11mm 0 0;
+  height: 88mm;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--pale);
+}
+
+.cover-visual img {
+  width: 100%;
+  height: 100%;
+}
+
+.cover-meta {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5mm;
+  padding: 6mm;
+  background: var(--pale);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.cover-meta span, .glance-item span {
+  display: block;
+  color: var(--teal);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 7.4pt;
+  margin-bottom: 2mm;
+}
+
+.cover-meta strong, .glance-item strong {
+  color: var(--navy);
+  font-size: 10.5pt;
+  line-height: 1.22;
+}
+
+.page-heading {
+  margin-bottom: 8mm;
+}
+
+.page-heading h2 {
+  color: var(--navy);
+  font-size: 28pt;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.page-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 5mm;
+}
+
+.pdf-section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  border-radius: 8px;
+  padding: 5mm;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.pdf-section:nth-child(3n + 1) {
+  background: var(--pale);
+}
+
+.role-glance, .statement-section {
+  grid-column: 1 / -1;
+}
+
+.section-label {
+  font-size: 8pt;
+  margin-bottom: 3mm;
+}
+
+.content-blocks {
+  font-size: 9.8pt;
+  line-height: 1.44;
+}
+
+.content-blocks p {
+  margin: 0 0 3.2mm;
+}
+
+.content-blocks p:last-child {
+  margin-bottom: 0;
+}
+
+.pdf-bullets {
+  margin: 0;
+  padding-left: 4.3mm;
+}
+
+.pdf-bullets li {
+  margin: 0 0 2.2mm;
+}
+
+.headed-text h4 {
+  margin: 0 0 2mm;
+  color: var(--navy);
+  font-size: 11.5pt;
+}
+
+.smart-kv-grid, .glance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5mm;
+}
+
+.smart-kv-card, .glance-item {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 4mm;
+}
+
+.smart-kv-card strong {
+  display: block;
+  color: var(--navy);
+  font-size: 10.5pt;
+  margin-bottom: 1.5mm;
+}
+
+.smart-kv-card span {
+  font-size: 9pt;
+  line-height: 1.35;
+}
+
+.supporting-image {
+  min-height: 42mm;
+  max-height: 62mm;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--pale);
+  border: 1px solid var(--border);
+}
+
+.supporting-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 45mm 1fr;
+  gap: 7mm;
+  align-items: stretch;
+  background: var(--pale);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6mm;
+  margin-top: 2mm;
+}
+
+.consultant-photo {
+  width: 45mm;
+  height: 55mm;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+
+.contact-details h3 {
+  margin: 0 0 1mm;
+  color: var(--navy);
+  font-size: 19pt;
+}
+
+.consultant-title {
+  color: var(--teal);
+  font-weight: 800;
+  margin: 0 0 4mm;
+}
+
+.contact-details p {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  margin: 0 0 2mm;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+.consultant-bio {
+  margin-top: 4mm !important;
+  display: block !important;
+}
+
+.pdf-footer {
+  position: absolute;
+  left: 17mm;
+  right: 17mm;
+  bottom: 8mm;
+  color: #5d737f;
+  font-size: 7.6pt;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 3mm;
+}
+
+.pdf-footer strong {
+  color: var(--navy);
+}
+
+.density-compact.pdf-page {
+  padding: 13mm 14mm 16mm;
+}
+
+.density-compact .pdf-logo-strip {
+  margin-bottom: 6mm;
+}
+
+.density-compact .cover-content h1 {
+  font-size: 34pt;
+}
+
+.density-compact .cover-visual {
+  height: 58mm;
+}
+
+.density-compact .page-heading h2 {
+  font-size: 23pt;
+}
+
+.density-compact .page-grid {
+  gap: 3.5mm;
+}
+
+.density-compact .pdf-section {
+  padding: 3.4mm;
+}
+
+.density-compact .content-blocks {
+  font-size: 8.8pt;
+  line-height: 1.34;
+}
+
+.density-compact .contact-panel {
+  grid-template-columns: 32mm 1fr;
+  gap: 5mm;
+  padding: 4mm;
+}
+
+.density-compact .consultant-photo {
+  width: 32mm;
+  height: 39mm;
+}
+
+.density-compact .contact-details h3 {
+  font-size: 15pt;
+}
+
+.density-compact .contact-details p {
+  font-size: 8.4pt;
+  margin-bottom: 1.2mm;
+}
+
+.density-spacious .page-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 6.5mm;
+}
+
+.density-spacious .content-blocks {
+  font-size: 10.5pt;
+  line-height: 1.52;
+}
+
+.density-spacious .pdf-section {
+  padding: 6mm;
+}
+
+.pdf-export {
+  display: block;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  .pdf-page {
+    box-shadow: none !important;
+  }
+}
